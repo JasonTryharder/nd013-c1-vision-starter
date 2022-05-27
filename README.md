@@ -55,42 +55,42 @@ Testing set 	: 10 tf.records<br />
 ```
 python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 2 --checkpoint /home/workspace/experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map /home/workspace/experiments/label_map.pbtxt - train `python experiments/model_main_tf2.py --model_dir=training/ssd_augmentaion_added_v3/ --pipeline_config_path=training/ssd_augmentaion_added_v3/pipeline_new.config
 ```
-<br />
-- validation (on cpu) 
+         
+- validation (on cpu)    
 ```
 python experiments/model_main_tf2.py --model_dir=training/ssd_augmentaion_added_v3/ --pipeline_config_path=training/ssd_augmentaion_added_v3/pipeline_new.config --checkpoint_dir=training/ssd_augmentaion_added_v3/
 ```
-<br />
+
 note: to mark a cpu as invisible follow : https://www.tensorflow.org/api_docs/python/tf/config/set_visible_devices
 
-- export model 
+- export model     
 ```
 python experiments/exporter_main_v2.py --input_type image_tensor --pipeline_config_path training/ssd_augmentaion_added_v3/pipeline_new.config --trained_checkpoint_dir training/ssd_augmentaion_added_v3 --output_directory training/ssd_augmentaion_added_v3/exported_model/
 ```
-<br />
-- inference 
+
+- inference     
 ```
 python inference_video.py --labelmap_path label_map.pbtxt --model_path training/ssd_augmentaion_added_v3/exported_model/saved_model --tf_record_path data/test/segment-1208303279778032257_1360_000_1380_000_with_camera_labels.tfrecord --config_path training/ssd_augmentaion_added_v3/pipeline_new.config --output_path training/ssd_augmentaion_added_v3/inference/segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4
 ```
 <br />
 #### Reference experiment
-In this section, I compared results from 4 training sessions, each with slight different configs, below is the difference summary:  
+In this section, I compared results from 4 training sessions, each with slight different configs, below is the difference summary:     
 Train-config4<br />
-	learning_rate_base: 0.04<br />
-     	total_steps: 25000<br />
+	-- learning_rate_base: 0.04<br />
+     	-- total_steps: 25000<br />
 Train-config6<br />
-	learning_rate_base: 0.02<br />
-     	total_steps: 100000<br />
+	-- learning_rate_base: 0.02<br />
+     	-- total_steps: 100000<br />
 Train-config9<br />
-	learning_rate_base: 0.02<br />
-     	total_steps: 200000<br />
-     	data_augmentation_options{random_image_scale{}}<br />
-  	data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
+	-- learning_rate_base: 0.02<br />
+     	-- total_steps: 200000<br />
+     	-- data_augmentation_options{random_image_scale{}}<br />
+  	-- data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 Train-config10<br />
-	learning_rate_base: 0.04<br />
-     	total_steps: 2000000<br />
-     	data_augmentation_options{random_image_scale{}}<br />
-  	data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
+	-- learning_rate_base: 0.04<br />
+     	-- total_steps: 2000000<br />
+     	-- data_augmentation_options{random_image_scale{}}<br />
+  	-- data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 #### Training Summary and Improvement Actions:
 Train-config 4, the loss still have room to decrease, AP score is very close to 0, another indication more training steps will be helpful
 inference img[train-config4-1](./summary_related/Config4-Screenshot from segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
