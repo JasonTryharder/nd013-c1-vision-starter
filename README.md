@@ -1,6 +1,3 @@
-
-
-
 ###Project OverView 
 Deep Learning algorithms are now the state of the art (SOTA) in most computer vision problems, such as image classification or object detection. Therefore, they are now in every SDC(self driving car) system. However, using deep learning adds additional constraints to the system because they require more computational power. 
 Develop a SDC system involves efforts in prepare quality data, choose appropriate DL model that alligns with the task goal, also analyze result using approprate metrics
