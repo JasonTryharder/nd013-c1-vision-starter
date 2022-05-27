@@ -72,7 +72,7 @@ python experiments/exporter_main_v2.py --input_type image_tensor --pipeline_conf
 ```
 python inference_video.py --labelmap_path label_map.pbtxt --model_path training/ssd_augmentaion_added_v3/exported_model/saved_model --tf_record_path data/test/segment-1208303279778032257_1360_000_1380_000_with_camera_labels.tfrecord --config_path training/ssd_augmentaion_added_v3/pipeline_new.config --output_path training/ssd_augmentaion_added_v3/inference/segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4
 ```
-<br />
+
 #### Reference experiment
 In this section, I compared results from 4 training sessions, each with slight different configs, below is the difference summary:     
 Train-config4<br />
