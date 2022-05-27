@@ -93,17 +93,21 @@ Train-config10<br />
   	-- data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 #### Training Summary and Improvement Actions:
 Train-config 4, the loss still have room to decrease, AP score is very close to 0, another indication more training steps will be helpful
-inference img[train-config4-1](./summary_related/Config4-Screenshot from segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
+inference img<br />
+![train-config4-1](./summary_related/Config4-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
 ![train-config4-loss](./summary_related/v4_loss.png)<br />
-Train-config 6, AP score keeps improving even after training loss start decreasing slowly, model can improve more by increase training steps 
-inference img[train-config6-1](./summary_related/Config6-Screenshot from segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
+Train-config 6, AP score keeps improving even after training loss start decreasing slowly, model can improve more by increase training steps<br />
+inference img<br />
+![train-config6-1](./summary_related/Config6-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
 ![train-config6-loss](./summary_related/V6_loss.png)<br />
-Train-config 9, AP score strats to plateu when training steps increased to 200K, with added augementation also helped increase AP score 
-inference img[train-config9-1](./summary_related/Config9-Screenshot from segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
+Train-config 9, AP score strats to plateu when training steps increased to 200K, with added augementation also helped increase AP score<br />
+inference img <br />
+![train-config9-1](./summary_related/Config9-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
 ![train-config9-loss](./summary_related/V9_loss.png)<br />
 Train-config 10, increased traininig step and early terminates when the it overfits badly
 From the loss graph( when the validation error did not moce but taining loss keeps reducing, it did not show a very big improvement, and the model AP score starts to decreasing after 1M steps 
-inference img3([train-config9-1](./summary_related/Config10-Screenshot from segment-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
+inference img3 <br />
+![train-config9-1](./summary_related/Config10-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
  ![train-config10-loss](./summary_related/V10_loss.png)<br />
 #### Summary
 With ssd + resnet 50, the performance for this data set is limited mainly due to the overly large portion of small objects, and the detector performs poorly on these, it will skew the overall model performance, also model only trained on 100 tf.records, more data will also help to improve the performance
