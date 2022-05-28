@@ -78,34 +78,46 @@ In this section, I compared results from 4 training sessions, each with slight d
 Train-config4<br />
 	-- learning_rate_base: 0.04<br />
      	-- total_steps: 25000<br />
+     	-- random_horizontal_flip(default)<br />
+     	-- random_crop_image(default)<br />
 Train-config6<br />
-	-- learning_rate_base: 0.02<br />
-     	-- total_steps: 100000<br />
+	-- ** changed **learning_rate_base: 0.02<br />
+     	-- ** changed **total_steps: 100000<br />
+     	-- random_horizontal_flip(default)<br />
+     	-- random_crop_image(default)<br />
 Train-config9<br />
 	-- learning_rate_base: 0.02<br />
-     	-- total_steps: 200000<br />
-     	-- data_augmentation_options{random_image_scale{}}<br />
-  	-- data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
+     	-- ** changed **total_steps: 200000<br />
+     	-- random_horizontal_flip(default)<br />
+     	-- random_crop_image(default)<br />
+     	-- ** added **data_augmentation_options{random_image_scale{}}<br />
+  	-- ** added **data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 Train-config10<br />
-	-- learning_rate_base: 0.04<br />
-     	-- total_steps: 2000000<br />
+	-- ** changed **learning_rate_base: 0.04<br />
+     	-- ** changed **total_steps: 2000000<br />
+     	-- random_horizontal_flip(default)<br />
+     	-- random_crop_image(default)<br />
      	-- data_augmentation_options{random_image_scale{}}<br />
   	-- data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 #### Training Summary and Improvement Actions:
+##### Training Trial   
 Train-config 4, the loss still have room to decrease, AP score is very close to 0, another indication more training steps will be helpful
 inference img<br />
 ![train-config4-1](./summary_related/Config4-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
 ![train-config4-loss](./summary_related/v4_loss.png)<br />
-Train-config 6, AP score keeps improving even after training loss start decreasing slowly, model can improve more by increase training steps<br />
+##### Improvement Trial   
+- Train-config 6, decreased learning rate from 0.04 to 0.02, increased total training step from 25K to 100K, more training step and smaller learn rate gives the model more time to improve
+AP score keeps improving even after training loss start decreasing slowly, model can improve more by increase training steps<br />
 inference img<br />
 ![train-config6-1](./summary_related/Config6-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png) <br />
 ![train-config6-loss](./summary_related/V6_loss.png)<br />
-Train-config 9, AP score strats to plateu when training steps increased to 200K, with added augementation also helped increase AP score<br />
+- Train-config 9, added more training step from 100K to 200K, and added random_image_scale and random rgb_to_gray augmentation
+from the AP scores, the changes made to the config files helped to decrease overfitting and also increased AP score <br />
 inference img <br />
 ![train-config9-1](./summary_related/Config9-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
 ![train-config9-loss](./summary_related/V9_loss.png)<br />
-Train-config 10, increased traininig step and early terminates when the it overfits badly
-From the loss graph( when the validation error did not moce but taining loss keeps reducing, it did not show a very big improvement, and the model AP score starts to decreasing after 1M steps 
+- Train-config 10, increased traininig step from 200K to 2million and early terminates when the it overfits badly
+From the loss graph( when the validation error did not reduce but training loss keeps reducing, it did not show a very big improvement, and the model AP score starts to decreasing after 1M steps 
 inference img3 <br />
 ![train-config9-1](./summary_related/Config10-1208303279778032257_1360_000_1380_000_with_camera_labels_animation.mp4.png)<br />
  ![train-config10-loss](./summary_related/V10_loss.png)<br />
