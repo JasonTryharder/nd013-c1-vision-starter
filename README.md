@@ -81,20 +81,20 @@ Train-config4<br />
      	-- random_horizontal_flip(default)<br />
      	-- random_crop_image(default)<br />
 Train-config6<br />
-	-- ** changed ** learning_rate_base: 0.02<br />
-     	-- ** changed ** total_steps: 100000<br />
+	-- **changed** learning_rate_base: 0.02<br />
+     	-- **changed** total_steps: 100000<br />
      	-- random_horizontal_flip(default)<br />
      	-- random_crop_image(default)<br />
 Train-config9<br />
 	-- learning_rate_base: 0.02<br />
-     	-- ** changed ** total_steps: 200000<br />
+     	-- **changed** total_steps: 200000<br />
      	-- random_horizontal_flip(default)<br />
      	-- random_crop_image(default)<br />
-     	-- ** added ** data_augmentation_options{random_image_scale{}}<br />
-  	-- ** added ** data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
+     	-- **added** data_augmentation_options{random_image_scale{}}<br />
+  	-- **added** data_augmentation_options{random_rgb_to_gray{probability:0.2}}<br />
 Train-config10<br />
-	-- ** changed ** learning_rate_base: 0.04<br />
-     	-- ** changed ** total_steps: 2000000<br />
+	-- **changed** learning_rate_base: 0.04<br />
+     	-- **changed** total_steps: 2000000<br />
      	-- random_horizontal_flip(default)<br />
      	-- random_crop_image(default)<br />
      	-- data_augmentation_options{random_image_scale{}}<br />
